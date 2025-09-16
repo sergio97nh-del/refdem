@@ -1,0 +1,22 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [ "master" ]  # o la rama que quieras
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ftp.reformasydemolicionesjn.es
+          username: ${{u209355061.sergio97nh}}
+          password: ${{FTP-97nh}}
+          server-dir: public_html/
+          local-dir: ./   # la carpeta raíz de tu repo
